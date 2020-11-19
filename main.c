@@ -2,7 +2,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
-extern ___error;
+//extern ___error;
 extern size_t	ft_strlen(const char *s);
 extern int	ft_strcmp(const char *s1, const char *s2);
 extern char	*ft_strcpy(char *dest, const char *src);
@@ -31,9 +31,15 @@ int	main()
 	printf("ret=%zd ret=%zd\n", ft_write(1, "lolilol\t", 8), write(1, "lolilol\t", 8));
 	printf("ret=%zd ret=%zd\n", ft_write(1, "toto\t", 5), write(1, "toto\t", 5));
 	printf("---READ---\n");
-	int fd=open("main.c", O_RDONLY);
-	char buf[5];
-	printf("%d\n", read(fd, buf, 4));
-	printf("buf=%s\n", buf);
+	int fd1=open("main.c", O_RDONLY);
+	int fd2=open("main.c", O_RDONLY);
+	char buf1[10];
+	printf("%zd\t", ft_read(fd1, buf1, 9));
+	printf("|%s|\t", buf1);
+	close(fd1);
+	char buf2[10];
+	printf("%zd\t", read(fd2, buf2, 9));
+	close(fd2);
+	printf("|%s|\n", buf2);
 	return (0);
 }
