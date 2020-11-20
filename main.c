@@ -2,6 +2,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdlib.h>
 //extern ___error;
 extern size_t	ft_strlen(const char *s);
 extern int	ft_strcmp(const char *s1, const char *s2);
@@ -26,9 +27,10 @@ int	main()
 
 	printf("---STRCPY---\n");
 	char dest1[5];
-	printf("|%s| ", ft_strcpy(dest1, ""));
+	printf("|%s| ", ft_strcpy(dest1, "loli"));
 	char dest2[5];
-	printf("|%s|\n", strcpy(dest2, ""));
+	printf("|%s|\n", strcpy(dest2, "loli"));
+	printf("len1=%zu len2=%zu\n", strlen(dest1), strlen(dest2));
 	
 	printf("---WRITE---\n");
 	printf("ret=%zd ret=%zd\n", ft_write(1, "a\t", 2), write(1, "a\t", 2));
@@ -48,6 +50,24 @@ int	main()
 	printf("|%s|\n", buf2);
 
 	printf("---STRDUP---\n");
-	printf("%s\t%s\n", ft_strdup("lol"), strdup("lol"));
+	char *s1="lol";
+	char *s2="lol;h,gfcghjklkljknhjbgvctrfvbgunijnhbvtchytgubhn,";
+	char *s3=NULL;
+	char *save1;
+	char *save2;
+	save1 = ft_strdup(s1);
+	save2 = strdup(s1);
+	printf("%s\t%s\n", save1, save2);
+	free(save1);
+	free(save2);
+	save1 = ft_strdup(s2);
+	save2 = strdup(s2);
+	printf("%s\t%s\n", save1, save2);
+	free(save1);
+	free(save2);
+//	save1 = ft_strdup(s3);
+//	save2 = strdup(s3);
+//	printf("%s\t%s\n", save1, save2);
+//	printf("%s\n", save2);
 	return (0);
 }
