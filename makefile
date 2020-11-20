@@ -17,7 +17,7 @@ $(NAME):	$(OBJS)
 			ar rcs $(NAME) $(OBJS)
 
 test:		$(NAME)
-			clang main.c -L. -lasm
+			clang -I .libasm.h main.c -L. -lasm
 		
 clean:
 			$(RM) $(OBJS) a.out

@@ -1,15 +1,5 @@
 #include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
-//extern ___error;
-extern size_t	ft_strlen(const char *s);
-extern int	ft_strcmp(const char *s1, const char *s2);
-extern char	*ft_strcpy(char *dest, const char *src);
-extern ssize_t	ft_write(int fd, const void *buf, size_t count);
-extern ssize_t	ft_read(int fd, const void *buf, size_t count);
-extern char *ft_strdup(const char *s);
+#include "libasm.h"
 
 int	main()
 {
@@ -42,16 +32,27 @@ int	main()
 	int fd2=open("main.c", O_RDONLY);
 	char buf1[10];
 	printf("%zd\t", ft_read(fd1, buf1, 9));
-	printf("|%s|\t", buf1);
+	printf("|%s|\n", buf1);
 	close(fd1);
 	char buf2[10];
 	printf("%zd\t", read(fd2, buf2, 9));
 	close(fd2);
 	printf("|%s|\n", buf2);
 
+	int fd3=open("makefile", O_RDONLY);
+	int fd4=open("makefile", O_RDONLY);
+	char buf3[50];
+	printf("%zd\t", ft_read(fd3, buf3, 49));
+	printf("|%s|\n", buf3);
+	close(fd3);
+	char buf4[50];
+	printf("%zd\t", read(fd4, buf4, 49));
+	printf("|%s|\n", buf4);
+	close(fd4);
+
 	printf("---STRDUP---\n");
 	char *s1="lol";
-	char *s2="lol;h,gfcghjklkljknhjbgvctrfvbgunijnhbvtchytgubhn,";
+	char *s2="lol;h,gfcghjklkljknhjbgvctrfvbgytgubhn,";
 	char *s3=NULL;
 	char *save1;
 	char *save2;
