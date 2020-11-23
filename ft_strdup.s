@@ -1,7 +1,7 @@
 extern ft_strlen
 extern malloc
 extern ft_strcpy
-extern error
+extern __errno_location
 
 section	.text
 	global ft_strdup
@@ -24,7 +24,11 @@ ft_strdup: ;rdi = src
 	jmp end
 
 erreur_malloc:
-	call error
+	neg rax
+	mov rbx, rax
+	call __errno_location
+	mov [rax], rbx
+	mov rax, 0
 	jmp end
 
 end:

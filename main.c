@@ -26,31 +26,35 @@ int	main()
 	printf("len1=%zu len2=%zu\n", strlen(dest1), strlen(dest2));
 	
 	printf("---WRITE---\n");
+	errno=0;
 	printf("ret=%zd ret=%zd\n", ft_write(1, "a\t", 2), write(1, "a\t", 2));
-	//errno=1;
 	printf("errno=%d\n", errno);
+	errno=0;
 	printf("ret=%zd ret=%zd\n", ft_write(1, "lolilol\t", 8), write(1, "lolilol\t", 8));
 	printf("errno=%d\n", errno);
+	errno=0;
 	printf("ret=%zd ret=%zd\n", ft_write(1, "toto\t", 5), write(1, "toto\t", 5));
 	printf("errno=%d\n", errno);
 	
 	printf("---READ---\n");
+	errno=0;
 	int fd1=open("main.c", O_RDONLY);
 	int fd2=open("main.c", O_RDONLY);
 	char buf1[10];
 	printf("%zd\t", ft_read(fd1, buf1, 9));
-	printf("|%s|\n", buf1);
+	printf("|%s| errno=%d\n", buf1, errno);
 	close(fd1);
 	char buf2[10];
 	printf("%zd\t", read(fd2, buf2, 9));
 	close(fd2);
 	printf("|%s|\n", buf2);
 
+	errno=0;
 	int fd3=open("makefile", O_RDONLY);
 	int fd4=open("makefile", O_RDONLY);
 	char buf3[50];
 	printf("%zd\t", ft_read(fd3, buf3, 49));
-	printf("|%s|\n", buf3);
+	printf("|%s| errno=%d\n", buf3, errno);
 	close(fd3);
 	char buf4[50];
 	printf("%zd\t", read(fd4, buf4, 49));
@@ -63,12 +67,14 @@ int	main()
 	char *s3=NULL;
 	char *save1;
 	char *save2;
+	errno=0;
 	save1 = ft_strdup(s1);
 	save2 = strdup(s1);
 	printf("%s\t%s\n", save1, save2);
 	printf("%d\n", errno);
 	free(save1);
 	free(save2);
+	errno=0;
 	save1 = ft_strdup(s2);
 	save2 = strdup(s2);
 	printf("%s\t%s\n", save1, save2);

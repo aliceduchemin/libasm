@@ -5,19 +5,18 @@ section	.text
 
 ft_write:
 	mov rax, 1  ;syscall write
-	mov rdi, -7
 	syscall       ;kernel call
 	cmp rax, 0
 	jl erreur_syscall
-	jmp end
+	jmp fin
 
 erreur_syscall:
 	neg	rax
-	mov rbx,rax
+	mov rbx, rax
 	call __errno_location
 	mov [rax], rbx
 	mov rax, -1
-	jmp end
+	jmp fin
 
-end:
+fin:
 	ret
