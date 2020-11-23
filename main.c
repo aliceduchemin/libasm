@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <string.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include "libasm.h"
 
 int	main()
@@ -24,8 +27,12 @@ int	main()
 	
 	printf("---WRITE---\n");
 	printf("ret=%zd ret=%zd\n", ft_write(1, "a\t", 2), write(1, "a\t", 2));
+	//errno=1;
+	printf("errno=%d\n", errno);
 	printf("ret=%zd ret=%zd\n", ft_write(1, "lolilol\t", 8), write(1, "lolilol\t", 8));
+	printf("errno=%d\n", errno);
 	printf("ret=%zd ret=%zd\n", ft_write(1, "toto\t", 5), write(1, "toto\t", 5));
+	printf("errno=%d\n", errno);
 	
 	printf("---READ---\n");
 	int fd1=open("main.c", O_RDONLY);
@@ -59,16 +66,18 @@ int	main()
 	save1 = ft_strdup(s1);
 	save2 = strdup(s1);
 	printf("%s\t%s\n", save1, save2);
+	printf("%d\n", errno);
 	free(save1);
 	free(save2);
 	save1 = ft_strdup(s2);
 	save2 = strdup(s2);
 	printf("%s\t%s\n", save1, save2);
+	printf("%d\n", errno);
 	free(save1);
 	free(save2);
 //	save1 = ft_strdup(s3);
 //	save2 = strdup(s3);
 //	printf("%s\t%s\n", save1, save2);
-//	printf("%s\n", save2);
+//	printf("%d\n", errno);
 	return (0);
 }

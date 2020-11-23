@@ -7,7 +7,7 @@ ft_strcpy:
 boucle:
 	mov ch, byte [rsi+rbx]
 	mov byte [rdi+rbx], ch
-	cmp byte [rsi+rbx], 0
+	cmp byte ch, 0
 	jz	end
 	inc rbx
 	jmp boucle
