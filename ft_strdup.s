@@ -6,13 +6,13 @@ extern __errno_location
 section	.text
 	global ft_strdup
 
-ft_strdup: ;rdi = src
+ft_strdup:
 	call ft_strlen
 	cmp rax, 0
-	jz end
+	jz fin
 	inc rax
 
-	mov rbx, rdi ;sauv src
+	mov rbx, rdi
 	mov rdi, rax
 	call malloc
 	cmp rax, 0
@@ -21,7 +21,7 @@ ft_strdup: ;rdi = src
 	mov rsi, rbx
 	mov rdi, rax
 	call ft_strcpy
-	jmp end
+	jmp fin
 
 erreur_malloc:
 	neg rax
@@ -29,7 +29,7 @@ erreur_malloc:
 	call __errno_location
 	mov [rax], rbx
 	mov rax, 0
-	jmp end
+	jmp fin
 
-end:
+fin:
 	ret

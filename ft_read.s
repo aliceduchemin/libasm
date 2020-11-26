@@ -4,8 +4,8 @@ section	.text
 	global ft_read
 
 ft_read:
-	mov rax, 0    ;syscall read
-	syscall       ;kernel call
+	mov rax, 0
+	syscall
 	cmp rax, 0
 	jl erreur_syscall
 	jmp fin

@@ -8,11 +8,11 @@ boucle:
 	mov ch, byte [rsi+rbx]
 	mov byte [rdi+rbx], ch
 	cmp byte ch, 0
-	jz	end
+	jz	fin
 	inc rbx
 	jmp boucle
 
-end:
+fin:
 	mov byte [rdi+rbx], 0
 	mov rax, rdi
 	ret

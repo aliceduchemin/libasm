@@ -4,11 +4,11 @@ section	.text
 ft_strlen:
 	mov rax, 0
 
-s1:
+boucle:
 	cmp byte [rdi+rax], 0
-	jz	end
+	jz	fin
 	inc rax
-	jmp s1
+	jmp boucle
 
-end:
+fin:
 	ret

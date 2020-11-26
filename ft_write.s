@@ -4,8 +4,8 @@ section	.text
 	global ft_write
 
 ft_write:
-	mov rax, 1  ;syscall write
-	syscall       ;kernel call
+	mov rax, 1
+	syscall
 	cmp rax, 0
 	jl erreur_syscall
 	jmp fin

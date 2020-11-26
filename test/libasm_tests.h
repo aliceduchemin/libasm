@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libasm.h                                           :+:      :+:    :+:   */
+/*   libasm_tests.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aduchemi <aduchemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 18:41:29 by aduchemi          #+#    #+#             */
-/*   Updated: 2020/11/23 18:06:41 by aduchemi         ###   ########.fr       */
+/*   Created: 2020/11/23 17:57:59 by aduchemi          #+#    #+#             */
+/*   Updated: 2020/11/23 19:05:10 by aduchemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBASM_H
-# define LIBASM_H
+#ifndef LIBASM_TESTS_H
+# define LIBASM_TESTS_H
 
-# include <stdlib.h>
-# include <errno.h>
+# include <stdio.h>
+# include <string.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include "../libasm.h"
 
-size_t	ft_strlen(const char *s);
-int		ft_strcmp(const char *s1, const char *s2);
-char	*ft_strcpy(char *dest, const char *src);
-ssize_t	ft_write(int fd, const void *buf, size_t count);
-ssize_t	ft_read(int fd, const void *buf, size_t count);
-char	*ft_strdup(const char *s);
+void	ft_test_strlen(void);
+void	ft_test_strcpy(void);
+void	ft_test_strcmp(void);
+void	ft_test_write(void);
+void	ft_test_read(void);
+void	ft_test_strdup(void);
 
 #endif
