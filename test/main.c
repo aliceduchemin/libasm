@@ -6,7 +6,7 @@
 /*   By: aduchemi <aduchemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:07:33 by aduchemi          #+#    #+#             */
-/*   Updated: 2020/11/23 19:16:08 by aduchemi         ###   ########.fr       */
+/*   Updated: 2020/11/28 12:01:01 by aduchemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	ft_test_write(void)
 	printf("ret=%zd errno=%d\n", ft_write(1, "a\t", 2), errno);
 	printf("ret=%zd errno=%d\n", write(1, "a\t", 2), errno);
 	errno = 0;
-	printf("ret=%zd errno=%d\n", ft_write(1, "lolilol\t", 8), errno);
-	printf("ret=%zd errno=%d\n", write(1, "lolilol\t", 8), errno);
+	printf("ret=%zd errno=%d\n", ft_write(-1, "lolilol\t", 8), errno);
+	printf("ret=%zd errno=%d\n", write(-1, "lolilol\t", 8), errno);
 	errno = 0;
 	printf("ret=%zd errno=%d\n", ft_write(1, "", 0), errno);
 	printf("ret=%zd errno=%d\n", write(1, "", 0), errno);

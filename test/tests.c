@@ -6,7 +6,7 @@
 /*   By: aduchemi <aduchemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:07:33 by aduchemi          #+#    #+#             */
-/*   Updated: 2020/11/23 19:10:50 by aduchemi         ###   ########.fr       */
+/*   Updated: 2020/11/28 12:00:00 by aduchemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	ft_test_read(void)
 	char	buf1[50];
 	char	buf2[50];
 
-	fd1 = open("makefile", O_RDONLY);
+	fd1 = open("Makefile", O_RDONLY);
 	printf("\n---READ---\n");
 	errno = 0;
 	printf("%zd\t |%s| errno=%d\n", ft_read(fd1, buf1, 49), buf1, errno);
 	close(fd1);
-	fd2 = open("makefile", O_RDONLY);
+	fd2 = open("Makefile", O_RDONLY);
 	errno = 0;
 	printf("%zd\t |%s| errno=%d\n", read(fd2, buf2, 49), buf2, errno);
 	close(fd2);
@@ -37,7 +37,7 @@ void	ft_test_strdup(void)
 	char	*save1;
 	char	*save2;
 
-	strcpy(s1, "lol");
+	strcpy(s1, "");
 	strcpy(s2, "lol;h,gfcghjklkljknhjbgvctrfvbgytgubhn,");
 	printf("\n---STRDUP---\n");
 	errno = 0;

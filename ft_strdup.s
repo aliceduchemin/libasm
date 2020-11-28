@@ -8,8 +8,6 @@ section	.text
 
 ft_strdup:
 	call ft_strlen
-	cmp rax, 0
-	jz fin
 	inc rax
 
 	mov rbx, rdi
